@@ -163,8 +163,14 @@ namespace Binary_Octal_Decimal_Hexadecimal_Converter
                     Decimal += (long)Math.Pow(2 , Length - i);
                 }
             }
-            
+            return Decimal;
         }
 
+        public static string ConvertFromBinaryToHexadecimal(string Binary)
+        {
+            long Decimal = ConvertFromBinaryToDecimal(Binary);
+
+            return ConvertFromDecimalToHexadecimal(Decimal);
+        }
     }
 }
