@@ -113,5 +113,13 @@ namespace Binary_Octal_Decimal_Hexadecimal_Converter
 
             return ConvertFromDecimalToHexadecimal(Decimal);
         }
+   
+        public static string ConvertFromHexadecimalToOctal(string Hexadecimal)
+        {
+            long Decimal = ConvertFromHexadecimalToDecimal(Hexadecimal);
+            return ConvertFromDecimalToOctal(Decimal);
+        }
+
+
     }
 }
