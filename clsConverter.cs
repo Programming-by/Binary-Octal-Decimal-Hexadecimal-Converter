@@ -120,6 +120,23 @@ namespace Binary_Octal_Decimal_Hexadecimal_Converter
             return ConvertFromDecimalToOctal(Decimal);
         }
 
+        public static string ConvertFromDecimalToBinary(long Decimal)
+        {
+            if (Decimal == 0)
+                return "0";
+
+            StringBuilder sbBinary = new StringBuilder();
+
+            byte Remainder = 0;
+            while (Decimal > 0)
+            {
+                Remainder = (byte) (Decimal % 2);
+
+                Decimal /= 2;
+                sbBinary.Insert(0, (char)('0' + Remainder));
+            }
+            return sbBinary.ToString();
+        }
 
     }
 }
