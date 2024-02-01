@@ -172,5 +172,12 @@ namespace Binary_Octal_Decimal_Hexadecimal_Converter
 
             return ConvertFromDecimalToHexadecimal(Decimal);
         }
+
+        public static string ConvertFromBinaryToOctal(string Binary)
+        {
+            long Decimal = ConvertFromBinaryToDecimal(Binary);
+
+            return ConvertFromDecimalToOctal(Decimal);
+        }
     }
 }
