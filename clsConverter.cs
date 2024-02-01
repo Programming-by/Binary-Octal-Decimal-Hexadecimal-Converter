@@ -107,5 +107,11 @@ namespace Binary_Octal_Decimal_Hexadecimal_Converter
             return Decimal;
         }
     
+        public static string ConvertFromOctalToHexadecimal(string Octal)
+        {
+          long Decimal  = ConvertFromOctalToDecimal(Octal);
+
+            return ConvertFromDecimalToHexadecimal(Decimal);
+        }
     }
 }
