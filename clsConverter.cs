@@ -18,5 +18,22 @@ namespace Binary_Octal_Decimal_Hexadecimal_Converter
             }
             return Decimal;
         }
+   
+        public static string ConvertFromDecimalToOctal(long Decimal)
+        {
+            if (Decimal == 0)
+                return "0";
+
+            StringBuilder sbOctal = new StringBuilder();
+            byte Remainder = 0;
+            while (Decimal > 0)
+            {
+                Remainder = (byte) (Decimal % 8);
+                Decimal /= 8;
+
+                sbOctal.Insert(0,Remainder);
+            }
+            return sbOctal.ToString();
+        }
     }
 }
