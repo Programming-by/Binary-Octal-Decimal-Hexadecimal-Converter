@@ -8,17 +8,6 @@ namespace Binary_Octal_Decimal_Hexadecimal_Converter
 {
     public static class clsConverter
     {
-        public static long ConvertFromOctalToDecimal(string Octal)
-        {
-            long Decimal = 0;
-            short Length = (short) (Octal.Length - 1);
-            for (short i = Length; i >= 0; i--)
-            {
-                Decimal += byte.Parse(Octal[i].ToString()) * (long)Math.Pow(8, (Length - i)); 
-            }
-            return Decimal;
-        }
-   
         public static string ConvertFromDecimalToOctal(long Decimal)
         {
             if (Decimal == 0)
@@ -35,5 +24,57 @@ namespace Binary_Octal_Decimal_Hexadecimal_Converter
             }
             return sbOctal.ToString();
         }
+        public static long ConvertFromOctalToDecimal(string Octal)
+        {
+            long Decimal = 0;
+            short Length = (short) (Octal.Length - 1);
+            for (short i = Length; i >= 0; i--)
+            {
+                Decimal += byte.Parse(Octal[i].ToString()) * (long)Math.Pow(8, (Length - i)); 
+            }
+            return Decimal;
+        }
+  
+        public static string ConvertFromDecimalToHexadecimal(long Decimal)
+        {
+            if (Decimal == 0)
+                return "0";
+
+            byte Remainder = 0;
+            StringBuilder sbHexa = new StringBuilder();
+
+            Dictionary<byte, char> keyValueHexa = new Dictionary<byte, char>()
+                  {
+                      { 0  , '0'  },
+                      { 1  , '1'  },
+                      { 2  , '2'  },
+                      { 3  , '3'  },
+                      { 4  , '4'  },
+                      { 5  , '5'  },
+                      { 6  , '6'  },
+                      { 7  , '7'  },
+                      { 8  , '8'  },
+                      { 9  , '9'  },
+                      { 10 , 'A' },
+                      { 11 , 'B' },
+                      { 12 , 'C' },
+                      { 13 , 'D' },
+                      { 14 , 'E' },
+                      { 15 , 'F' }
+                  };
+
+
+            while (Decimal > 0)
+            {
+                Remainder = (byte) (Decimal % 16);
+
+                Decimal /= 16;
+
+                sbHexa.Insert(0, keyValueHexa[Remainder]);
+            } 
+            return sbHexa.ToString();
+        }
+    
+    
     }
 }
