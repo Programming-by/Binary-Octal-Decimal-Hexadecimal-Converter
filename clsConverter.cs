@@ -144,5 +144,14 @@ namespace Binary_Octal_Decimal_Hexadecimal_Converter
 
             return ConvertFromDecimalToBinary(Decimal);
         }
+   
+        public static string ConvertFromOctalToBinary(string Octal)
+        {
+            long Decimal = ConvertFromOctalToDecimal(Octal);
+
+            return ConvertFromDecimalToBinary(Decimal);
+        }
+
+
     }
 }
