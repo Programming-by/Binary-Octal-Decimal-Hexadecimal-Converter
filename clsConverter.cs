@@ -152,6 +152,19 @@ namespace Binary_Octal_Decimal_Hexadecimal_Converter
             return ConvertFromDecimalToBinary(Decimal);
         }
 
+        public static long ConvertFromBinaryToDecimal(string Binary)
+        {
+            long Decimal = 0;
+            short Length = (byte) (Binary.Length - 1);
+            for (int i = Length; i >=0; i--)
+            {
+                if (Binary[i] == '1')
+                {
+                    Decimal += (long)Math.Pow(2 , Length - i);
+                }
+            }
+            
+        }
 
     }
 }
