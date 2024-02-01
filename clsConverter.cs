@@ -138,5 +138,11 @@ namespace Binary_Octal_Decimal_Hexadecimal_Converter
             return sbBinary.ToString();
         }
 
+        public static string ConvertFromHexadecimalToBinary(string Hexadecimal)
+        {
+            long Decimal = ConvertFromHexadecimalToDecimal(Hexadecimal);
+
+            return ConvertFromDecimalToBinary(Decimal);
+        }
     }
 }
